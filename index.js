@@ -2,6 +2,7 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
+require('dotenv').config();
 
 // Health route
 app.get('/health', (req, res) => {
