@@ -11,10 +11,22 @@ module.exports = {
       package_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        references: {
+          model: "packages",
+          key: "id",
+        },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
       },
       tag_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        references: {
+          model: "tags",
+          key: "id",
+        },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
       },
       createdAt: {
         type: Sequelize.DATE,

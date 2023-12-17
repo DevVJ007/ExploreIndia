@@ -11,10 +11,22 @@ module.exports = {
       user_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        references: {
+          model: "users",
+          key: "id",
+        },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
       },
       package_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        references: {
+          model: "packages",
+          key: "id",
+        },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
       },
       booking_date: {
         type: Sequelize.DATE,
