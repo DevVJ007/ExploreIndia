@@ -15,9 +15,7 @@ const Package = sequelize.define('packages', {
     location: DataTypes.STRING,
     price: DataTypes.INTEGER,
     duration: DataTypes.STRING,
-    user_id: DataTypes.INTEGER,
-    created_at: DataTypes.DATE,
-    updated_at: DataTypes.DATE
+    user_id: DataTypes.INTEGER
 });
 Package.hasMany(PackageImage, {foreignKey: 'package_id', as: 'package_images'});
 PackageImage.belongsTo(Package, {foreignKey: 'package_id', as: 'package'});

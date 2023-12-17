@@ -7,8 +7,6 @@ const PackageTag = sequelize.define('package_tags', {
         autoIncrement: true
     },
     package_id: DataTypes.INTEGER,
-    tag_id: DataTypes.INTEGER,
-    created_at: DataTypes.DATE,
-    updated_at: DataTypes.DATE
+    tag_id: DataTypes.INTEGER
 });
 module.exports = PackageTag;

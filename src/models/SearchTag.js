@@ -7,8 +7,6 @@ const SearchTag = sequelize.define('search_tags', {
         autoIncrement: true
     },
     tag_name: DataTypes.STRING,
-    type_id: DataTypes.STRING,
-    created_at: DataTypes.DATE,
-    updated_at: DataTypes.DATE
+    type_id: DataTypes.STRING
 });
 module.exports = SearchTag;

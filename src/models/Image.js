@@ -7,9 +7,7 @@ const Image = sequelize.define('images', {
         primaryKey: true,
         autoIncrement: true
     },
-    image: DataTypes.STRING,
-    created_at: DataTypes.DATE,
-    updated_at: DataTypes.DATE
+    path: DataTypes.STRING,
 });
 Image.hasOne(PackageImage, {foreignKey: 'image_id', as: 'package_images'});
 PackageImage.belongsTo(Image, {foreignKey: 'image_id', as: 'image'});

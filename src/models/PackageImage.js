@@ -7,8 +7,6 @@ const PackageImage = sequelize.define('package_images', {
         autoIncrement: true
     },
     package_id: DataTypes.INTEGER,
-    image_id: DataTypes.INTEGER,
-    created_at: DataTypes.DATE,
-    updated_at: DataTypes.DATE
+    image_id: DataTypes.INTEGER
 });
 module.exports = PackageImage;

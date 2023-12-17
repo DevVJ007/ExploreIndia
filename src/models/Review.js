@@ -9,8 +9,6 @@ const Review = sequelize.define('reviews', {
     user_id: DataTypes.INTEGER,
     package_id: DataTypes.INTEGER,
     review: DataTypes.STRING,
-    rating: DataTypes.INTEGER,
-    created_at: DataTypes.DATE,
-    updated_at: DataTypes.DATE
+    rating: DataTypes.INTEGER
 });
 module.exports = Review;

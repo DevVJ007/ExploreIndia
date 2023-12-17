@@ -9,9 +9,7 @@ const UserImage = sequelize.define('user_images', {
         autoIncrement: true
     },
     user_id: DataTypes.INTEGER,
-    image_id: DataTypes.INTEGER,
-    created_at: DataTypes.DATE,
-    updated_at: DataTypes.DATE
+    image_id: DataTypes.INTEGER, 
 });
 UserImage.belongsTo(Image, {foreignKey: 'image_id', as: 'image'});
 Image.hasOne(UserImage, {foreignKey: 'image_id', as: 'user_images'});

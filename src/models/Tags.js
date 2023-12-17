@@ -7,9 +7,7 @@ const Tag = sequelize.define('tags', {
         primaryKey: true,
         autoIncrement: true
     },
-    tag: DataTypes.STRING,
-    created_at: DataTypes.DATE,
-    updated_at: DataTypes.DATE
+    tag: DataTypes.STRING
 });
 Tag.belongsToMany(PackageTags , {foreignKey: 'tag_id', as: 'package_tags'});
 PackageTags.belongsTo(Tag, {foreignKey: 'tag_id', as: 'tag'});

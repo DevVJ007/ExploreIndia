@@ -3,19 +3,12 @@ Table users {
     name varchar
     email varchar
     password varchar
-    role_id int
+    role int
     mobile varchar
     bio varchar
     created_at timestamp
     updated_at timestamp
 }
-Table roles {
-    id int [pk, increment]
-    name varchar
-    created_at timestamp
-    updated_at timestamp
-}
-Ref: users.role_id > roles.id
 Table Image {
     id int [pk, increment]
     image varchar

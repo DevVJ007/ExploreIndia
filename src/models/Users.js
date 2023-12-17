@@ -13,11 +13,9 @@ const User = sequelize.define('users', {
   name: DataTypes.STRING,
   email: DataTypes.STRING,
   password: DataTypes.STRING,
-  role_id: DataTypes.INTEGER,
+  role: DataTypes.INTEGER,
   mobile: DataTypes.STRING,
   bio: DataTypes.STRING,
-  created_at: DataTypes.DATE,
-  updated_at: DataTypes.DATE
 });
 User.hasOne(UserImage, { foreignKey: 'user_id', as: 'user_image' });
 UserImage.belongsTo(User, { foreignKey: 'user_id', as: 'user' });

@@ -7,9 +7,7 @@ const SearchType = sequelize.define('search_types', {
         primaryKey: true,
         autoIncrement: true
     },
-    type: DataTypes.STRING,
-    created_at: DataTypes.DATE,
-    updated_at: DataTypes.DATE
+    type: DataTypes.STRING
 });
 SearchType.hasMany(SearchTag, {foreignKey: 'type_id', as: 'tags'});
 SearchTag.belongsTo(SearchType, {foreignKey: 'type_id', as: 'type'});
