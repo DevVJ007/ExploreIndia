@@ -4,6 +4,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 require('dotenv').config(true);
 const sequelize = require('./config/db.config');
+const api = require('./src/api');
 
 // Connecting to the database
 sequelize
@@ -15,6 +16,7 @@ sequelize
     console.error('Unable to connect to the database:', err);
   });
 // Health route
+app.use('/api', api);
 app.get('/health', (req, res) => {
   res.send('Hey buddy,\nI am good.\nHow are you?');
 });
