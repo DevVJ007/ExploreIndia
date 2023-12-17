@@ -1,5 +1,5 @@
 const {Sequelize, DataTypes} = require('sequelize');
-const sequelize = require('./connection');
+const sequelize = require("../../config/db.config");
 const Image = require('./Images');
 const User = require('./Users');
 const UserImage = sequelize.define('user_images', {

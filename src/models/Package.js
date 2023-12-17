@@ -1,5 +1,5 @@
 const {Sequelize, DataTypes} = require('sequelize');
-const sequelize = require('./connection');
+const sequelize = require("../../config/db.config");
 const PackageImage = require('./PackageImage');
 const PackageTags = require('./PackageTags');
 const Booking = require('./Booking');

@@ -1,5 +1,5 @@
 const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = require('./connection');
+const sequelize = require("../../config/db.config");
 const UserImage = require('./UserImage');
 const Review = require('./Reviews');
 const Booking = require('./Bookings');
@@ -25,5 +25,4 @@ User.hasMany(Booking, { foreignKey: 'user_id', as: 'bookings' });
 Booking.belongsTo(User, { foreignKey: 'user_id', as: 'user' });
 User.hasMany(Package, { foreignKey: 'user_id', as: 'packages' });
 Package.belongsTo(User, { foreignKey: 'user_id', as: 'user' });
-
 module.exports = User;

@@ -1,5 +1,5 @@
 const {Sequelize, DataTypes} = require('sequelize');
-const sequelize = require('./connection');
+const sequelize = require("../../config/db.config");
 const Review = sequelize.define('reviews', {
     id: {
         type: DataTypes.INTEGER,
