@@ -1,5 +1,5 @@
 const Tags = require('../../models/Tags');
-
+const TagType = require('../../models/TagType');
 exports.getTagByType = async (type_id) => {
     return await Tags.findAll({
         where: {

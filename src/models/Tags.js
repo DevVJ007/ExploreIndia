@@ -8,7 +8,13 @@ const Tag = sequelize.define("tags", {
     autoIncrement: true,
   },
   tag: DataTypes.STRING,
-  type_id: DataTypes.INTEGER,
+  type_id: {
+    type: DataTypes.INTEGER,
+    references: {
+      model: "tag_types",
+      key: "id",
+    },
+  }
 });
 Tag.belongsToMany(PackageTags, {
   through: "package_tags",

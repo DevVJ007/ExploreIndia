@@ -24,15 +24,39 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
-      duration: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
       user_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
           model: "users",
+          key: "id",
+        },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
+      },
+      days: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
+      nights: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
+      tour_type_id: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+        references: {
+          model: "tags",
+          key: "id",
+        },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
+      },
+      activity_id: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+        references: {
+          model: "tags",
           key: "id",
         },
         onUpdate: "CASCADE",

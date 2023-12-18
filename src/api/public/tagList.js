@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { getTagByType } = require("../../services/public/tagList");
 const { z } = require('zod');
-router.get("/:id",(req,res)=>{
+router.get("/:id",async (req,res)=>{
     const id = Number(req.params.id);
     const schema = z.number();
     const result = schema.safeParse(id);
@@ -10,13 +10,13 @@ router.get("/:id",(req,res)=>{
         res.send(result.error);
         return;
     }
-    getTagByType(id)
-      .then((data) => {
-        res.send(data);
-      })
-      .catch((err) => {
-        res.send(err);
-      });
+    try {
+      const tagList = await getTagByType(id);
+      res.send(tagList);
+    } catch (err) {
+      console.log(err);
+      res.sendStatus(500);
+    }
 })
 
 module.exports = router;
