@@ -1,0 +1,93 @@
+Table users {
+    id int [pk, increment]
+    name varchar
+    email varchar
+    password varchar
+    role int
+    mobile varchar
+    bio varchar
+    created_at timestamp
+    updated_at timestamp
+}
+Table Image {
+    id int [pk, increment]
+    image varchar
+    created_at timestamp
+    updated_at timestamp
+}
+Table package {
+    id int [pk, increment]
+    title varchar
+    description varchar
+    location varchar
+    price int
+    duration int
+    user_id int [ref: > users.id]
+    created_at timestamp
+    updated_at timestamp
+}
+Table booking {
+    id int [pk, increment]
+    user_id int [ref: > users.id]
+    package_id int [ref: > package.id]
+    booking_date timestamp
+    payment_status varchar
+    created_at timestamp
+    updated_at timestamp
+}
+Table review {
+    id int [pk, increment]
+    user_id int [ref: > users.id]
+    package_id int [ref: > package.id]
+    review varchar
+    rating int
+    created_at timestamp
+    updated_at timestamp
+}
+Table tags {
+    id int [pk, increment]
+    tag varchar
+    type_id int [ref: > tag_type.id]
+    created_at timestamp
+    updated_at timestamp
+}
+Table package_tags {
+    id int [pk, increment]
+    package_id int [ref: > package.id]
+    tag_id int [ref: > tags.id]
+    created_at timestamp
+    updated_at timestamp
+}
+Table package_images {
+    id int [pk, increment]
+    package_id int [ref: > package.id]
+    image_id int [ref: - Image.id]
+    created_at timestamp
+    updated_at timestamp
+}
+Table user_images {
+    id int [pk, increment]
+    user_id int [ref: - users.id]
+    image_id int [ref: - Image.id]
+    created_at timestamp
+    updated_at timestamp
+}
+Table tag_type {
+    id int [pk, increment]
+    type varchar 
+    created_at timestamp
+    updated_at timestamp
+}
+Table search_tag {
+    id int [pk, increment]
+    tag_name varchar
+    type_id int [ref: > search_type.id]
+    created_at timestamp
+    updated_at timestamp
+}
+Table search_type {
+    id int [pk, increment]
+    type varchar
+    created_at timestamp
+    updated_at timestamp
+}
