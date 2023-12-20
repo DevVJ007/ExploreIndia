@@ -1,32 +1,8 @@
-// Importing necessary modules
-const express = require('express');
-const app = express();
-const port = process.env.PORT || 3000;
-require('dotenv').config(true);
-const sequelize = require('./config/db.config');
-const api = require('./src/api');
+require("dotenv").config();
+const app = require("./src/app.js");
 
-// Connecting to the database
-sequelize
-  .authenticate()
-  .then(() => {
-    console.log('Connection has been established successfully.');
-  })
-  .catch((err) => {
-    console.error('Unable to connect to the database:', err);
-  });
-// Health route
-app.use('/api', api);
-app.get('/health', (req, res) => {
-  res.send('Hey buddy,\nI am good.\nHow are you?');
-});
-
-// Login route
-app.get('/login', (req, res) => {
-  res.send('Congratulations, you are logged in!');
-});
-
-// Listening to the specified port
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+// Start the server
+const PORT = process.env.PORT || 8000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+})

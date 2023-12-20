@@ -1,10 +1,10 @@
-const Package = require('./../../models/Package');
-exports.getPackage = async ()=>{
+const {Package} = require('../../database/models');
+const getPackage = async (request)=>{
     return await Package.findAll({
         attributes: ['id', 'title', 'description', 'location', 'price', 'days', 'nights']
-    }).then((data)=>{
-        return data;
-    }).catch((err)=>{
-        return err;
-    });
+    })
+}
+
+module.exports = {
+    getPackage
 }
